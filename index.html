@@ -145,6 +145,37 @@
         color: var(--band-ink);
       }
 
+      .meals {
+        list-style: none;
+        margin-top: 40px;
+        border-top: 1px solid var(--line);
+      }
+
+      .meals li {
+        display: flex;
+        align-items: baseline;
+        gap: 20px;
+        padding: 20px 0;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .meals .meal {
+        flex: 0 0 3.5em;
+        font-size: clamp(20px, 5vw, 26px);
+        font-weight: 900;
+        letter-spacing: -0.03em;
+      }
+
+      .meals .note {
+        font-size: clamp(16px, 4vw, 18px);
+        color: var(--muted);
+      }
+
+      .meals .note strong {
+        color: var(--ink);
+        font-weight: 700;
+      }
+
       .buy-bar {
         position: fixed;
         left: 0;
@@ -187,6 +218,43 @@
             <strong>그렇다. 맞다.</strong> 학생은 배가 고프다.
           </p>
           <a class="btn" data-buy-link href="#">바로 구매하기</a>
+        </div>
+      </section>
+
+      <section id="food" aria-label="음식">
+        <div class="wrap">
+          <p class="eyebrow">음식에 대하여</p>
+          <h2>먹어야 한다.</h2>
+          <p class="lead">
+            공부도, 과제도, 시험도 <strong>먹고 나서</strong> 한다. 음식이
+            먼저다.
+          </p>
+          <ul class="meals">
+            <li>
+              <span class="meal">아침</span>
+              <span class="note">
+                가장 거르기 쉽다. <strong>그래서 가장 배고프다.</strong>
+              </span>
+            </li>
+            <li>
+              <span class="meal">점심</span>
+              <span class="note">
+                시간은 짧고 줄은 길다. <strong>빨리 먹어야 한다.</strong>
+              </span>
+            </li>
+            <li>
+              <span class="meal">저녁</span>
+              <span class="note">
+                하루가 끝나도 할 일은 남는다. <strong>든든해야 한다.</strong>
+              </span>
+            </li>
+            <li>
+              <span class="meal">야식</span>
+              <span class="note">
+                시험 기간의 밤은 길다. <strong>배는 또 고프다.</strong>
+              </span>
+            </li>
+          </ul>
         </div>
       </section>
 
