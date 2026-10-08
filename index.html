@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>배가 고프다 | 학생을 위한 더 효율적인 선택</title>
+    <!--
+      학생 대상 랜딩페이지입니다.
+      맨 아래 <script>의 PRODUCT 두 값만 바꾸면 페이지 전체에 반영됩니다.
+        - name   : 상품명
+        - buyUrl : 구매(결제) 페이지 주소
+
+      후기 / 통계 / 가격 / 비교표 섹션은 근거 자료가 없어 넣지 않았습니다.
+      실제 자료가 생기면 #why 섹션 아래에 추가하세요.
+    -->
+    <style>
+      :root {
+        --bg: #fffaf2;
+        --ink: #1c1917;
+        --muted: #6b645c;
+        --accent: #e8480c;
+        --accent-dark: #c53a06;
+        --line: #eadfce;
+        --band: #1c1917;
+        --band-ink: #fffaf2;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, system-ui,
+          "Apple SD Gothic Neo", "Noto Sans KR", "Segoe UI", sans-serif;
+        background: var(--bg);
+        color: var(--ink);
+        line-height: 1.5;
+        word-break: keep-all;
+        /* 하단 고정 구매 바에 내용이 가리지 않도록 */
+        padding-bottom: 88px;
+      }
+
+      .wrap {
+        width: 100%;
+        max-width: 720px;
+        margin: 0 auto;
+        padding: 0 24px;
+      }
+
+      header {
+        padding: 20px 0;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .brand {
+        font-weight: 800;
+        font-size: 16px;
+        letter-spacing: -0.01em;
+      }
+
+      section {
+        padding: 72px 0;
+      }
+
+      section + section {
+        border-top: 1px solid var(--line);
+      }
+
+      .eyebrow {
+        font-size: 13px;
+        font-weight: 700;
+        color: var(--accent);
+        letter-spacing: 0.04em;
+        margin-bottom: 16px;
+      }
+
+      h1,
+      h2 {
+        font-weight: 900;
+        letter-spacing: -0.04em;
+        line-height: 1.1;
+      }
+
+      h1 {
+        font-size: clamp(48px, 13vw, 96px);
+        margin-bottom: 24px;
+      }
+
+      h2 {
+        font-size: clamp(36px, 9vw, 64px);
+        margin-bottom: 20px;
+      }
+
+      .lead {
+        font-size: clamp(17px, 4.2vw, 21px);
+        color: var(--muted);
+        max-width: 30em;
+      }
+
+      .lead strong {
+        color: var(--ink);
+        font-weight: 700;
+      }
+
+      .btn {
+        display: inline-block;
+        margin-top: 32px;
+        padding: 18px 36px;
+        border-radius: 14px;
+        background: var(--accent);
+        color: #ffffff;
+        font-size: 18px;
+        font-weight: 800;
+        text-decoration: none;
+        transition: background 0.15s ease, transform 0.15s ease;
+      }
+
+      .btn:hover {
+        background: var(--accent-dark);
+        transform: translateY(-1px);
+      }
+
+      .btn:focus-visible {
+        outline: 3px solid var(--ink);
+        outline-offset: 3px;
+      }
+
+      .band {
+        background: var(--band);
+        color: var(--band-ink);
+        border-top: none;
+      }
+
+      .band .lead {
+        color: #cfc6ba;
+      }
+
+      .band .lead strong {
+        color: var(--band-ink);
+      }
+
+      .buy-bar {
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        padding: 12px 16px calc(12px + env(safe-area-inset-bottom, 0px));
+        background: rgba(255, 250, 242, 0.94);
+        border-top: 1px solid var(--line);
+        backdrop-filter: blur(10px);
+      }
+
+      .buy-bar .btn {
+        display: block;
+        max-width: 672px;
+        margin: 0 auto;
+        padding: 16px;
+        text-align: center;
+      }
+
+      @media (max-width: 480px) {
+        section {
+          padding: 56px 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="wrap">
+        <div class="brand" data-product-name>[상품명]</div>
+      </div>
+    </header>
+
+    <main>
+      <section id="home" aria-label="문제">
+        <div class="wrap">
+          <p class="eyebrow">학생에게</p>
+          <h1>배가 고프다.</h1>
+          <p class="lead">
+            <strong>그렇다. 맞다.</strong> 학생은 배가 고프다.
+          </p>
+          <a class="btn" data-buy-link href="#">바로 구매하기</a>
+        </div>
+      </section>
+
+      <section id="why" aria-label="왜 이 상품인가">
+        <div class="wrap">
+          <p class="eyebrow">왜 <span data-product-name>[상품명]</span>인가</p>
+          <h2>더 효율적이다.</h2>
+          <p class="lead">
+            <span data-product-name>[상품명]</span>은 지금 쓰는 방법보다
+            <strong>더 효율적으로</strong> 배고픔을 해결한다.
+          </p>
+        </div>
+      </section>
+
+      <section id="buy" class="band" aria-label="구매">
+        <div class="wrap">
+          <h2>훌륭하다.</h2>
+          <p class="lead">
+            배가 고프면 <strong>지금 산다.</strong> 그게 전부다.
+          </p>
+          <a class="btn" data-buy-link href="#">바로 구매하기</a>
+        </div>
+      </section>
+    </main>
+
+    <div class="buy-bar">
+      <a class="btn" data-buy-link href="#">바로 구매하기</a>
+    </div>
+
+    <script>
+      // 이 두 값만 바꾸면 페이지 전체에 반영됩니다.
+      var PRODUCT = {
+        name: "[상품명]",
+        buyUrl: "#",
+      };
+
+      document.querySelectorAll("[data-product-name]").forEach(function (el) {
+        el.textContent = PRODUCT.name;
+      });
+      document.querySelectorAll("[data-buy-link]").forEach(function (el) {
+        el.href = PRODUCT.buyUrl;
+      });
+    </script>
+  </body>
+</html>
